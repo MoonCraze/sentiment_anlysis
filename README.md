@@ -36,7 +36,7 @@ Preprocessed datasets will be saved under `data/{imdb,sst2,twitter}` as PyTorch 
 
 ### 🏗️ Architecture
 
-```text
+
 Input Text → Tokenizer → Embedding Layer (GloVe, FastText, or trainable)
                     ↓
              Bi-LSTM Encoder
@@ -53,7 +53,7 @@ Bi-LSTM: Hidden size configurable (e.g., 128 units each direction)
 
 Attention: Weighted sum of hidden states
 
-Output: Softmax over 2–5 classes
+Output: Softmax over 2–5 classes.
 
 ### ⚙️ Requirements
 
@@ -69,7 +69,7 @@ Install dependencies:
 
 pip install -r requirements.txt
 
-▶️ Usage
+### ▶️ Usage
 
 Training on IMDB
 
@@ -82,13 +82,13 @@ python train.py \
   --epochs 5 \
   --lr 1e-3
 
-Evaluation
+### Evaluation
 
 python evaluate.py \
   --model_path checkpoints/imdb_model.pt \
   --test_data data/imdb/test.pt
 
-📖 Citation
+### 📖 Citation
 
 If you use this code, please cite:
 
