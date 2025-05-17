@@ -34,27 +34,6 @@ We include example scripts to download and preprocess the following datasets:
 
 Preprocessed datasets will be saved under `data/{imdb,sst2,twitter}` as PyTorch `.pt` or NumPy `.npz` files.
 
-### 🏗️ Architecture
-
-
-Input Text → Tokenizer → Embedding Layer (GloVe, FastText, or trainable)
-                    ↓
-             Bi-LSTM Encoder
-                    ↓
-              Attention Layer
-                    ↓
-         Dropout → Dense → Softmax
-                    ↓
-             Predicted Label
-
-Embedding: 100–300 dimensions (pre-trained or trainable)
-
-Bi-LSTM: Hidden size configurable (e.g., 128 units each direction)
-
-Attention: Weighted sum of hidden states
-
-Output: Softmax over 2–5 classes.
-
 ### ⚙️ Requirements
 
 Python 3.8+
@@ -93,4 +72,27 @@ python evaluate.py \
 If you use this code, please cite:
 
 Visal S. Adikari, “Sentiment Analysis with Bi-LSTM and Attention,” GitHub repository, 2025
+
+### 🏗️ Architecture
+
+```text
+Input Text → Tokenizer → Embedding Layer (GloVe, FastText, or trainable)
+                    ↓
+             Bi-LSTM Encoder
+                    ↓
+              Attention Layer
+                    ↓
+         Dropout → Dense → Softmax
+                    ↓
+             Predicted Label
+
+Embedding: 100–300 dimensions (pre-trained or trainable)
+
+Bi-LSTM: Hidden size configurable (e.g., 128 units each direction)
+
+Attention: Weighted sum of hidden states
+
+Output: Softmax over 2–5 classes.
+
+
 
