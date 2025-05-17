@@ -34,7 +34,7 @@ We include example scripts to download and preprocess the following datasets:
 
 Preprocessed datasets will be saved under `data/{imdb,sst2,twitter}` as PyTorch `.pt` or NumPy `.npz` files.
 
-## 🏗️ Architecture
+### 🏗️ Architecture
 
 ```text
 Input Text → Tokenizer → Embedding Layer (GloVe, FastText, or trainable)
@@ -55,7 +55,7 @@ Attention: Weighted sum of hidden states
 
 Output: Softmax over 2–5 classes
 
-⚙️ Requirements
+### ⚙️ Requirements
 
 Python 3.8+
 
