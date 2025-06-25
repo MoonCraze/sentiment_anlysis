@@ -2,8 +2,9 @@ import os
 
 from preprocessing.preprocess import preprocess_data
 
-if __name__ == "__main__":
+
+def run_preprocessing_news():
     input_path = os.path.join("..", "data", "x_data.json")
-    output_path = os.path.join("..", "data", "preprocessed_data1.json")
+    output_path = os.path.join("..", "data", "preprocessed_data_news.json")
     preprocess_data(input_path, output_path)
-    print(f"Preprocessed data saved to {output_path}")
+    return output_path

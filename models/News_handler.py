@@ -3,9 +3,11 @@ import pandas as pd
 from transformers import pipeline, AutoTokenizer, AutoModelForSequenceClassification
 
 from model_loader.berta_models import load_finbert_sentiment_model
+from services.tweet_converter import run_preprocessing_news
 
 # === Step 1: Load your JSON file ===
-json_path = r"C:\Users\visal Adikari\OneDrive\Desktop\Uni Sem 7\sentiment alaysis\data\preprocessed_data1.json"
+json_path = run_preprocessing_news()
+
 with open(json_path, "r", encoding='utf-8') as f:
     data = json.load(f)
 
