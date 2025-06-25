@@ -2,6 +2,8 @@ import json
 import pandas as pd
 from transformers import pipeline, AutoTokenizer, AutoModelForSequenceClassification
 
+from model_loader.berta_models import load_finbert_sentiment_model
+
 # === Step 1: Load your JSON file ===
 json_path = r"C:\Users\visal Adikari\OneDrive\Desktop\Uni Sem 7\sentiment alaysis\data\preprocessed_data1.json"
 with open(json_path, "r", encoding='utf-8') as f:
@@ -22,10 +24,7 @@ for entry in data:
                 timestamps.append(embed.get("timestamp", None))
 
 # === Step 3: Load FinBERT ===
-model_name = "yiyanghkust/finbert-tone"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForSequenceClassification.from_pretrained(model_name)
-sentiment_model = pipeline("text-classification", model=model, tokenizer=tokenizer)
+sentiment_model = load_finbert_sentiment_model()
 
 # === Step 4: Get dominant sentiment for each news item ===
 labels = []
