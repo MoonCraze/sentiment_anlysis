@@ -2,6 +2,8 @@ import json
 import pandas as pd
 from transformers import AutoTokenizer, AutoModelForSequenceClassification, pipeline
 
+from model_loader.berta_models import load_deberta_sentiment_model
+
 # === Step 1: Load tweets from JSON ===
 tweets_path = r"C:\Users\visal Adikari\OneDrive\Desktop\Uni Sem 7\sentiment alaysis\data\general_tweets.json"
 with open(tweets_path, "r", encoding="utf-8") as f:
@@ -17,10 +19,7 @@ for tweet in tweets:
         tweet_texts.append(tweet)
 
 # === Step 3: Load DeBERTa v3 sentiment model ===
-model_name = "cardiffnlp/twitter-roberta-base-sentiment"  # This is better for tweet sentiment
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForSequenceClassification.from_pretrained(model_name)
-sentiment_pipeline = pipeline("sentiment-analysis", model=model, tokenizer=tokenizer)
+sentiment_pipeline = load_deberta_sentiment_model()
 
 # === Step 4: Predict sentiment for each tweet ===
 labels = []
